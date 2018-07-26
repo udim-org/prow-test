@@ -1,0 +1,26 @@
+# Plugin repository whitelist.
+# Keys: Full repo name: "org/repo".
+# Values: List of plugins to run against the repo.
+#
+# Example config: https://github.com/kubernetes/test-infra/blob/master/prow/plugins.yaml
+---
+blunderbuss:
+  request_count: 1  # Minimum number of reviewers
+
+config_updater:
+  maps:
+    prow/config.yaml:
+      name: config
+    prow/plugins.yaml:
+      name: plugins
+
+plugins:
+  udim-org/prow-test:
+  - size  # Auto-label size of PR
+  - cat # /meow replies with cat pictures
+  - dog # /bark replies with dog pictures
+  - shrug # /shrug adds shrug label
+  - assign  # Allow /assign and /cc
+  - blunderbuss  # Auto-assign people
+  - help  # Support /help and /good-first-issue
+  - lifecycle  # Allow /lifecycle stale
